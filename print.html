@@ -5,36 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Article</title>
     <style>
-      @page {
-            size: A4;
-            margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
-        }
-
-        body {
+      body {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 12pt; /* Kích thước phông chữ tương tự DOCX */
-            line-height: 1.5; /* Dãn dòng giống DOCX */
-            margin: 0; /* Đặt margin 0 để loại bỏ khoảng trống */
-            padding: 0; /* Không có padding cho body */
-            width: 21cm; /* Chiều rộng A4 */
-            height: 29.7cm; /* Chiều cao A4 */
+            line-height: 1.15;
+            margin: 0; /* Đặt margin 0 để tránh cuộn */
+            padding: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+            width: 100%; /* Chiều rộng 100% */
+            height: auto; /* Chiều cao tự động */
             box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
-            overflow: hidden; /* Ẩn thanh cuộn */
-            display: flex; /* Sử dụng flexbox */
-            justify-content: center; /* Căn giữa nội dung */
-            align-items: center; /* Căn giữa theo chiều dọc */
         }
 
-        .content {
-            padding: 2cm 2cm 2cm 3cm; /* Padding cho nội dung */
-            width: 100%; /* Chiều rộng nội dung */
-            height: 100%; /* Chiều cao nội dung */
-            box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
-            overflow: auto; /* Thêm thanh cuộn nếu nội dung vượt quá */
-            border: 1px solid #ccc; /* Đường viền nhẹ để hiển thị lề */
-            background-color: #ffffff; /* Màu nền trắng */
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+            }
         }
-
     </style>
 </head>
 <body>
