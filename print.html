@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Article</title>
     <style>
+      @page {
+            size: A4;
+            margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+        }
+
         body {
             font-family: 'Times New Roman', Times, serif;
             line-height: 1.15;
-            margin: 0; /* Đặt margin 0 để tránh cuộn */
-            padding: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
-            width: 100%; /* Chiều rộng 100% */
-            height: auto; /* Chiều cao tự động */
+            margin: 0; /* Đặt margin 0 để loại bỏ khoảng trống */
+            padding: 2cm 2cm 2cm 3cm; /* Padding cho nội dung */
+            width: 21cm; /* Chiều rộng A4 */
+            height: 29.7cm; /* Chiều cao A4 */
             box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
-        }
-
-        @media print {
-            @page {
-                size: A4;
-                margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
-            }
+            overflow: hidden; /* Ẩn thanh cuộn */
         }
     </style>
 </head>
