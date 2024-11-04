@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Article</title>
     <style>
-          @page {
+      @page {
             size: A4;
             margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
         }
@@ -19,6 +19,7 @@
             width: 21cm; /* Chiều rộng A4 */
             height: 29.7cm; /* Chiều cao A4 */
             box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
+            overflow: hidden; /* Ẩn thanh cuộn */
             display: flex; /* Sử dụng flexbox */
             justify-content: center; /* Căn giữa nội dung */
             align-items: center; /* Căn giữa theo chiều dọc */
@@ -29,7 +30,7 @@
             width: 100%; /* Chiều rộng nội dung */
             height: 100%; /* Chiều cao nội dung */
             box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
-            overflow: auto; /* Hiển thị thanh cuộn nếu nội dung vượt quá */
+            overflow: auto; /* Thêm thanh cuộn nếu nội dung vượt quá */
             border: 1px solid #ccc; /* Đường viền nhẹ để hiển thị lề */
             background-color: #ffffff; /* Màu nền trắng */
         }
