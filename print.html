@@ -6,16 +6,17 @@
     <title>View Article</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        font-family: 'Times New Roman', Times, serif;
+            line-height: 1.15;
+            margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+            padding: 0;
         }
-        #content {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+            }
         }
     </style>
 </head>
