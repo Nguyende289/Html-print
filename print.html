@@ -6,10 +6,14 @@
     <title>View Article</title>
     <style>
         body {
-        font-family: 'Times New Roman', Times, serif;
+          body {
+            font-family: 'Times New Roman', Times, serif;
             line-height: 1.15;
-            margin: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
-            padding: 0;
+            margin: 0; /* Đặt margin 0 để tránh cuộn */
+            padding: 2cm 2cm 2cm 3cm; /* trên, phải, dưới, trái */
+            width: 100%; /* Chiều rộng 100% */
+            height: auto; /* Chiều cao tự động */
+            box-sizing: border-box; /* Để padding không làm vượt quá chiều rộng */
         }
 
         @media print {
