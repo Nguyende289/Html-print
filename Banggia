@@ -1,130 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng Giá Sản Phẩm</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0; 
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Giá Sản Phẩm</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Bảng Giá Sản Phẩm</h1>
-        <table id="price-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Giá Bán</th>
-                    <th>Giá Mua</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dữ liệu bảng giá sẽ được hiển thị ở đây -->
-            </tbody>
-        </table>
-    </div>
-
-    <script>
-        // Cấu hình Google Sheets API
-        const sheetId = '1pEmKTB8_IRiGnX1lXV13mbtpzjXHf4c5HtOIK_lnFh4';  // Thay 'YOUR_GOOGLE_SHEET_ID' bằng ID của Google Sheet.
-        const apiKey = '6Ml3o-k4Oer-2D26B-W0CQ0-uABIF-hx66V-LwTxC-Ozmud';  // Thay 'YOUR_GOOGLE_API_KEY' bằng API Key của bạn.
-
-        // Địa chỉ API của Google Sheets để lấy dữ liệu từ Sheet1
-        const sheetUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1?key=${apiKey}`;
-
-        // Lấy dữ liệu từ Google Sheets và cập nhật bảng
-        function fetchDataAndUpdateTable() {
-            fetch(sheetUrl)
-                .then(response => response.json())  // Chuyển phản hồi thành dạng JSON
-                .then(data => {
-                    const rows = data.values;  // Dữ liệu bảng giá từ Google Sheets
-                    const tableBody = document.querySelector('#price-table tbody');
-                    
-                    // Lặp qua các dòng dữ liệu và cập nhật bảng mà không xóa các dòng
-                    rows.slice(1).forEach((row, index) => {  // Bỏ qua dòng tiêu đề
-                        const [id, productName, salePrice, purchasePrice] = row;  // Giả sử có 4 cột: ID, Tên sản phẩm, Giá bán, Giá mua
-
-                        let rowElement = tableBody.children[index];
-
-                        if (!rowElement) {
-                            // Nếu dòng chưa tồn tại, tạo mới
-                            rowElement = document.createElement('tr');
-                            tableBody.appendChild(rowElement);
-                        }
-
-                        // Cập nhật nội dung cho từng ô trong dòng
-                        const idCell = rowElement.children[0] || document.createElement('td');
-                        idCell.textContent = id;
-
-                        const nameCell = rowElement.children[1] || document.createElement('td');
-                        nameCell.textContent = productName;
-
-                        const salePriceCell = rowElement.children[2] || document.createElement('td');
-                        salePriceCell.textContent = salePrice;
-
-                        const purchasePriceCell = rowElement.children[3] || document.createElement('td');
-                        purchasePriceCell.textContent = purchasePrice;
-
-                        // Thêm các ô vào dòng
-                        if (!rowElement.children[0]) rowElement.appendChild(idCell);
-                        if (!rowElement.children[1]) rowElement.appendChild(nameCell);
-                        if (!rowElement.children[2]) rowElement.appendChild(salePriceCell);
-                        if (!rowElement.children[3]) rowElement.appendChild(purchasePriceCell);
-                    });
-                })
-                .catch(error => console.error('Error fetching data: ', error));
-        }
-
-        // Lấy dữ liệu ngay khi trang web được tải lần đầu
-        fetchDataAndUpdateTable();
-
-        // Kiểm tra và cập nhật bảng giá mỗi 30 giây
-        setInterval(fetchDataAndUpdateTable, 30000);  // 30000 ms = 30 giây
-    </script>
+  <div class="container">
+    <h1>Bảng Giá Sản Phẩm</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Sản Phẩm</th>
+          <th>Giá</th>
+          <th>Mô Tả</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sản phẩm 1</td>
+          <td>100.000 VNĐ</td>
+          <td>Mô tả sản phẩm 1</td>
+        </tr>
+        <tr>
+          <td>Sản phẩm 2</td>
+          <td>200.000 VNĐ</td>
+          <td>Mô tả sản phẩm 2</td>
+        </tr>
+        <tr>
+          <td>Sản phẩm 3</td>
+          <td>300.000 VNĐ</td>
+          <td>Mô tả sản phẩm 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
